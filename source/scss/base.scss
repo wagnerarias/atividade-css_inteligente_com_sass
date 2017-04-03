@@ -1,13 +1,67 @@
-/* base.scss -> base.css */
-// Crio a variável
-$cor-padrao: #069;
- 
-.btn-primario {
-  // aqui eu chamo a variável:
-  background: $cor-padrao;
+$tema: $base-tema;
+
+@mixin tema($base-bg, $base-color, $base-border: 0) {
+	background-color: $base-bg;
+	color: $base-color;
+	border: $base-border;
 }
- 
-.texto-principal {
-  // chamo aqui também:
-  color: $cor-padrao;
+
+
+
+.menu-ft {
+	width: $base-width;
+	margin: 0px auto;
+}
+
+.menu-ft ul{
+	padding:0px;
+	margin:0px;
+	list-style:none;
+	@if $tema == 1 {
+		@include tema(#B6B1B1, #000, .15em solid #000);
+	}
+	@else if $tema == 2 {
+		@include tema(#FFFF00, #00F, .2em solid #00f);
+	}
+	@else if $tema == 3 {
+		@include tema(#00FF00, #FFF, .1em solid #f00);
+	}		
+}
+
+.separa {
+	margin-left: $base-separa;
+}
+
+.menu-ft ul li{
+	display: inline;
+}
+
+.menu-ft ul li a {
+	padding: 10px 10px;
+	display: inline-block;
+	text-decoration: none;
+		@if $tema == 1 {
+		@include tema(#B6B1B1, #000);
+	}
+	@else if $tema == 2 {
+		@include tema(#FFFF00, #00F);
+	}
+	@else if $tema == 3 {
+		@include tema(#00FF00, #FFF);
+	}
+}
+
+.menu-ft ul li a:hover{
+	padding: 10px 10px;
+	display: inline-block;
+	text-decoration: none;
+	@if $tema == 1 {
+		@include tema(#000, #B6B1B1);
+	}
+	@else if $tema == 2 {
+		@include tema(#00f, #FFFF00);
+	}
+	@else if $tema == 3 {
+		@include tema(#fff, #00FF00);
+	}
 }
